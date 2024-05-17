@@ -4,6 +4,9 @@
 With powershell `echo $env:JAVA_HOME`<br/>
 On command-prompt `echo %JAVA_HOME%`<br/>
 
+## Packaging a spring boot app using maven
+[See this very important reference](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/) especially [section 5](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle#packaging)
+
 
 ## Issues
 Unsolved<br/>

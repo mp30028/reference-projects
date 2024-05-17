@@ -8,7 +8,7 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.zonesoft.reference_projects</groupId>
+	<groupId>com.zonesoft</groupId>
 	<artifactId>hello-world-barebones</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hello-world-barebones</name>
@@ -34,11 +34,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-<!--				<configuration>-->
-<!--					<mainClass>com.zonesoft.reference_projects.hello_world_barebones.HelloWorldBarebonesApp</mainClass>-->
-<!--					<layout>JAR</layout>-->
-<!--				</configuration>				-->
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>			
 		</plugins>
 	</build>
 
