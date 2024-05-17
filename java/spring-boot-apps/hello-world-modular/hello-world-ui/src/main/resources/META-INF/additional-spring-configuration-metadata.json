@@ -2,11 +2,11 @@
   {
     "name": "APPLICATION_NAME",
     "type": "java.lang.String",
-    "description": "The name of the application"
+    "description": "A description for 'APPLICATION_NAME'"
   },
   {
     "name": "SERVER_PORT",
     "type": "java.lang.String",
-    "description": "The http or https port that the application runs on"
+    "description": "A description for 'SERVER_PORT'"
   }
 ]}
