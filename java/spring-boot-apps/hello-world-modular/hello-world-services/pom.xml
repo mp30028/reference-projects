@@ -11,7 +11,15 @@
   <description>Services used by other hello world modules</description>
 	<modules>
 		<module>greeting-service</module>
-		<module>clock-service</module>
-		<module>calendar-service</module>
-	</modules>  
+<!--		<module>clock-service</module>-->
+<!--		<module>calendar-service</module>-->
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>		
+		</plugins>
+	</build> 	
 </project>

@@ -1,4 +1,4 @@
-package com.zonesoft.reference.ui.hello_world.clients.builder;
+package com.zonesoft.reference.utils.client_builder;
 
 
 import java.util.List;
@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 @Configuration
-public class ClientBuilder<T extends IClientConfigs> {
+public class ClientBuilder<T extends IClientBuilderConfigs> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ClientBuilder.class);
 	
@@ -32,7 +32,7 @@ public class ClientBuilder<T extends IClientConfigs> {
 		this.configs = configs;
 	}
 	
-	public IClientConfigs getConfigs() {
+	public IClientBuilderConfigs getConfigs() {
 		return this.configs;
 	}
 	

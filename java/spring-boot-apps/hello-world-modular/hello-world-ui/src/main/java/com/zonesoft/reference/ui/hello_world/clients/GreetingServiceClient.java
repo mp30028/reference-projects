@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
-import com.zonesoft.reference.ui.hello_world.clients.builder.IClientConfigs;
+import com.zonesoft.reference.utils.client_builder.ClientBuilder;
+import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
+
+//import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
+//import com.zonesoft.reference.ui.hello_world.clients.builder.IClientConfigs;
 
 
 @Configuration
-public class GreetingServiceClient implements IClientConfigs {
+public class GreetingServiceClient implements IClientBuilderConfigs {
 	
     @Value("${GREETING_SERVICE_PROTOCOL}")
     private String protocol;

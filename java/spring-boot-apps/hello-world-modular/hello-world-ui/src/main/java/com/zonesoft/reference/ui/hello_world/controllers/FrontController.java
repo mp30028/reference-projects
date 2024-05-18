@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.zonesoft.reference.ui.hello_world.clients.GreetingServiceClient;
-import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
+import com.zonesoft.reference.utils.client_builder.ClientBuilder;
+//import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
 
 @Controller
 public class FrontController {

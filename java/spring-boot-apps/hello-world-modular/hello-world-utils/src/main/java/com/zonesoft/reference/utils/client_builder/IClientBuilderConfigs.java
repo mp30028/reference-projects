@@ -1,6 +1,6 @@
-package com.zonesoft.reference.ui.hello_world.clients.builder;
+package com.zonesoft.reference.utils.client_builder;
 
-public interface IClientConfigs {
+public interface IClientBuilderConfigs {
 
 	String getProtocol();
 
