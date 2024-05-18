@@ -1,4 +1,4 @@
-package com.zonesoft.reference_projects.hello_world_modular.ui.controllers;
+package com.zonesoft.reference.ui.hello_world.controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-	@GetMapping(value={"","/","/greeting","/hello"})
+	@GetMapping(value={"","/"})
 	@ResponseBody
 	public String greeting( ) {
 

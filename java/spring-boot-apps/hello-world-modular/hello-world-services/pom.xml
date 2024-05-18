@@ -5,13 +5,13 @@
     <artifactId>hello-world-modular</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world-ui</artifactId>
-  <name>hello-world-ui</name>
-  <description>A simple barbones ui</description> 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
-	</dependencies>  
+  <artifactId>hello-world-services</artifactId>
+    <packaging>pom</packaging>
+  <name>hello-world-servics</name>
+  <description>Services used by other hello world modules</description>
+	<modules>
+		<module>greeting-service</module>
+		<module>clock-service</module>
+		<module>calendar-service</module>
+	</modules>  
 </project>
