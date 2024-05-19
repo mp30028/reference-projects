@@ -40,6 +40,12 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.github.loki4j</groupId>
+			<artifactId>loki-logback-appender</artifactId>
+			<scope>runtime</scope>
+			<version>1.5.1</version>
+		</dependency>		
 <!--		<dependency>-->
 <!--			<groupId>com.zonesoft</groupId>-->
 <!--			<artifactId>hello-world-utils</artifactId>-->
