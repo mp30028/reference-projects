@@ -13,7 +13,13 @@
 			<groupId>com.zonesoft</groupId>
 			<artifactId>hello-world-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
-		</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>com.github.loki4j</groupId>
+			<artifactId>loki-logback-appender</artifactId>
+			<scope>runtime</scope>
+			<version>${loki-logback-appender.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
