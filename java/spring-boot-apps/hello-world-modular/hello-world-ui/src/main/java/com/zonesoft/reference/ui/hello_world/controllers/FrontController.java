@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.zonesoft.reference.ui.hello_world.clients.GreetingServiceClient;
+import com.zonesoft.reference.ui.hello_world.clients.GreetingServiceClientConfigs;
 import com.zonesoft.reference.utils.client_builder.ClientBuilder;
-//import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
 
 @Controller
 public class FrontController {
 
-	private final ClientBuilder<GreetingServiceClient> builder;
+	private final GreetingServiceClientConfigs builderConfigs;
 	
-	public FrontController(ClientBuilder<GreetingServiceClient> builder) {
+	public FrontController(GreetingServiceClientConfigs builderConfigs) {
 		super();
-		this.builder = builder;
+		this.builderConfigs = builderConfigs;
 	}
 	
 	@GetMapping(value={"show-greeting"})
@@ -36,8 +35,9 @@ public class FrontController {
 	}
 	
 	private String getMessage() {
-		String uriPath = this.builder.getConfigs().getPath();
-		WebClient webClient = builder.build();
+		ClientBuilder builder = new ClientBuilder();
+		String uriPath = this.builderConfigs.getPath();
+		WebClient webClient = builder.build(this.builderConfigs);
 		return webClient
 				.get()
 				.uri(uriBuilder -> {

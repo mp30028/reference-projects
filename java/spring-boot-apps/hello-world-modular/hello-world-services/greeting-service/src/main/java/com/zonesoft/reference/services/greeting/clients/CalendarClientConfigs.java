@@ -1,41 +1,30 @@
-package com.zonesoft.reference.ui.hello_world.clients;
-
-import java.util.Objects;
+package com.zonesoft.reference.services.greeting.clients;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.client_builder.ClientBuilder;
 import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
 
-//import com.zonesoft.reference.ui.hello_world.clients.builder.ClientBuilder;
-//import com.zonesoft.reference.ui.hello_world.clients.builder.IClientConfigs;
-
-
 @Configuration
-public class GreetingServiceClient implements IClientBuilderConfigs {
+public class CalendarClientConfigs implements IClientBuilderConfigs {
 	
-    @Value("${GREETING_SERVICE_PROTOCOL}")
+    @Value("${CALENDAR_SERVICE_PROTOCOL}")
     private String protocol;
     
-    @Value("${GREETING_SERVICE_DOMAIN}")
+    @Value("${CALENDAR_SERVICE_DOMAIN}")
     private String domain;
     
-    @Value("${GREETING_SERVICE_PORT}")
+    @Value("${CALENDAR_SERVICE_PORT}")
     private String port;
     
-    @Value("${GREETING_SERVICE_PATH}")
+    @Value("${CALENDAR_SERVICE_PATH}")
     private String path;
     
-    @Value("${GREETING_SERVICE_CLIENT_NAME}")
+    @Value("${CALENDAR_SERVICE_CLIENT_NAME}")
     private String clientName;
     
-    @Value("${GREETING_SERVICE_TYPE}")
+    @Value("${CALENDAR_SERVICE_TYPE}")
     private String clientType ;
-
-    private ClientBuilder<GreetingServiceClient> builder;    
-    
     
 	@Override
 	public String getProtocol() {
@@ -96,17 +85,5 @@ public class GreetingServiceClient implements IClientBuilderConfigs {
 	public void setClientType(String clientType) {
 		this.clientType = clientType;
 	}    
-    
-	@Bean
-	public
-	ClientBuilder<GreetingServiceClient> storageApiClientBuilder(){		
-		if (Objects.isNull(this.builder)) {
-			synchronized (GreetingServiceClient.class) {
-				if (Objects.isNull(this.builder)) {
-					this.builder = new ClientBuilder<>(this);
-				}
-			}
-		}				
-		return this.builder;
-	}
+
 }
