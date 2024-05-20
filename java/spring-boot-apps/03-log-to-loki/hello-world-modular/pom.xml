@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>com.github.loki4j</groupId>
 			<artifactId>loki-logback-appender</artifactId>
-<!--			<scope>runtime</scope>-->
+			<scope>runtime</scope>
 			<version>${loki-logback-appender.version}</version>
 		</dependency>		
 	</dependencies>
