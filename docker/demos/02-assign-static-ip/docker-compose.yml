@@ -1,0 +1,29 @@
+services:
+  app-3:
+    container_name: app-3
+    image: alpine-app
+    tty: true
+    ports:
+      - 8083:8083
+    networks:
+      alpine_apps_tier:
+        ipv4_address: 10.5.0.3
+  
+  app-4:
+    container_name: app-4
+    image: alpine-app
+    tty: true
+    ports:
+      - 8084:8084
+    networks:
+      alpine_apps_tier:
+        ipv4_address: 10.5.0.4
+      
+networks:
+  alpine_apps_tier:
+    name: alpine_apps_tier
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1      
