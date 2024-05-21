@@ -1,4 +1,4 @@
-package com.zonesoft.reference.services.greeting.clients;
+package com.zonesoft.reference.services.greeting.client_configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -6,26 +6,26 @@ import org.springframework.context.annotation.Configuration;
 import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
 
 @Configuration
-public class CalendarClientConfigs implements IClientBuilderConfigs {
+public class ClockClientConfigs implements IClientBuilderConfigs {
 	
-    @Value("${CALENDAR_SERVICE_PROTOCOL}")
+    @Value("${CLOCK_SERVICE_PROTOCOL}")
     private String protocol;
     
-    @Value("${CALENDAR_SERVICE_DOMAIN}")
+    @Value("${CLOCK_SERVICE_DOMAIN}")
     private String domain;
     
-    @Value("${CALENDAR_SERVICE_PORT}")
+    @Value("${CLOCK_SERVICE_PORT}")
     private String port;
     
-    @Value("${CALENDAR_SERVICE_PATH}")
+    @Value("${CLOCK_SERVICE_PATH}")
     private String path;
     
-    @Value("${CALENDAR_SERVICE_CLIENT_NAME}")
+    @Value("${CLOCK_SERVICE_CLIENT_NAME}")
     private String clientName;
     
-    @Value("${CALENDAR_SERVICE_TYPE}")
+    @Value("${CLOCK_SERVICE_TYPE}")
     private String clientType ;
-    
+
 	@Override
 	public String getProtocol() {
 		return protocol;
@@ -85,5 +85,4 @@ public class CalendarClientConfigs implements IClientBuilderConfigs {
 	public void setClientType(String clientType) {
 		this.clientType = clientType;
 	}    
-
 }

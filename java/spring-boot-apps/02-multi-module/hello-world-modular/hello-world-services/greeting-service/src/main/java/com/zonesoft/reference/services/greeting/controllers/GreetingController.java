@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.zonesoft.reference.services.greeting.clients.CalendarClientConfigs;
-import com.zonesoft.reference.services.greeting.clients.ClockClientConfigs;
+import com.zonesoft.reference.services.greeting.client_configs.CalendarClientConfigs;
+import com.zonesoft.reference.services.greeting.client_configs.ClockClientConfigs;
 import com.zonesoft.reference.utils.client_builder.ClientBuilder;
 import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
 
