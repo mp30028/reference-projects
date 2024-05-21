@@ -11,8 +11,8 @@
   <description>Services used by other hello world modules</description>
 	<modules>
 		<module>greeting-service</module>
-<!--		<module>clock-service</module>-->
-<!--		<module>calendar-service</module>-->
+		<module>clock-service</module>
+		<module>calendar-service</module>
 	</modules>
 	<build>
 		<plugins>
