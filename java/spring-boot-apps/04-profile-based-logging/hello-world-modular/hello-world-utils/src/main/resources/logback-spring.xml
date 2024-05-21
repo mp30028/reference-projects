@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+    <springProperty scope="context" name="name" source="spring.application.name"/>
+    <springProperty scope="context" name="org" source="spring.application.org" />
+    <variable  resource="application.properties" />
+
+	<if condition='property("LOKI_ENABLED").equals("true")'>
+		<then>
+		    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+		        <http>
+		        	<url>${LOKI_URL}</url>
+		        </http>
+		        <format>
+		            <label>
+		                <pattern>org=${org},app=${name},host=${HOSTNAME},level=%level</pattern>
+		                <readMarkers>true</readMarkers>
+		            </label>
+		            <message>
+		                <pattern>
+		                    {
+			                    "level":"%level",
+			                    "class":"%logger{36}",
+			                    "thread":"%thread",
+			                    "message": "%message"
+		                    }
+		                </pattern>
+		            </message>
+		        </format>
+		    </appender>
+		    
+			<logger name="com.zonesoft" level="DEBUG" additivity="false">
+				<appender-ref ref="LOKI"/>
+			</logger>
+			
+			<root level="INFO">
+				<appender-ref ref="LOKI" />
+			</root>
+		</then>
+	</if>
+
+	<logger name="com.zonesoft" level="DEBUG" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
