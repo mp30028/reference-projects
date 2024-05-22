@@ -20,10 +20,14 @@ scrape_configs:
         - targets: 
           - host.docker.internal:8284
 
-    - job_name: 'date-time-services'
+    - job_name: 'time-services'
       metrics_path: '/actuator/prometheus'
       static_configs:
         - targets: 
           - host.docker.internal:8285
-          - host.docker.internal:8286          
-        
+          
+    - job_name: 'date-services'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: 
+          - host.docker.internal:8286 
