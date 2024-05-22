@@ -3,13 +3,14 @@
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
     <springProperty scope="context" name="name" source="spring.application.name"/>
     <springProperty scope="context" name="org" source="spring.application.org" />
-    <variable  resource="application.properties" />
+    <springProperty scope="context" name="isLokiEnabled" source="zonesoft.loki.enabled" />
+    <springProperty scope="context" name="lokiUrl" source="zonesoft.loki.url" />
 
-	<if condition='property("LOKI_ENABLED").equals("true")'>
+	<if condition='property("isLokiEnabled").equals("true")'>
 		<then>
 		    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
 		        <http>
-		        	<url>${LOKI_URL}</url>
+		        	<url>${lokiUrl}</url>
 		        </http>
 		        <format>
 		            <label>
@@ -46,5 +47,4 @@
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
-
 </configuration>
