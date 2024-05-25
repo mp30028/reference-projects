@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
-    <springProperty scope="context" name="name" source="spring.application.name"/>
-    <springProperty scope="context" name="org" source="spring.application.org" />
-    <springProperty scope="context" name="isLokiEnabled" source="zonesoft.loki.enabled" />
-    <springProperty scope="context" name="lokiUrl" source="zonesoft.loki.url" />
+<!--     <springProperty scope="context" name="name" source="spring.application.name"/> -->
+<!--     <springProperty scope="context" name="org" source="spring.application.org" /> -->
+<!--     <springProperty scope="context" name="isLokiEnabled" source="zonesoft.loki.enabled" /> -->
+<!--     <springProperty scope="context" name="lokiUrl" source="zonesoft.loki.url" /> -->
 
-	<if condition='property("isLokiEnabled").equals("true")'>
-		<then>
-		    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
-		        <http>
-		        	<url>${lokiUrl}</url>
-		        </http>
-		        <format>
-		            <label>
-		                <pattern>org=${org},app=${name},host=${HOSTNAME},traceID=%X{traceId:-NONE},spanID=%X{spanId:-NONE},level=%level</pattern>
-		                <readMarkers>true</readMarkers>
-		            </label>
-		            <message>
-		                <pattern>
-		                    {
-			                    "level":"%level",
-			                    "class":"%logger{36}",
-			                    "thread":"%thread",
-			                    "message": "%message"
-		                    }
-		                </pattern>
-		            </message>
-		        </format>
-		    </appender>
+<!-- 	<if condition='property("isLokiEnabled").equals("true")'> -->
+<!-- 		<then> -->
+<!-- 		    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender"> -->
+<!-- 		        <http> -->
+<!-- 		        	<url>${lokiUrl}</url> -->
+<!-- 		        </http> -->
+<!-- 		        <format> -->
+<!-- 		            <label> -->
+<!-- 		                <pattern>org=${org},app=${name},host=${HOSTNAME},traceID=%X{traceId:-NONE},spanID=%X{spanId:-NONE},level=%level</pattern> -->
+<!-- 		                <readMarkers>true</readMarkers> -->
+<!-- 		            </label> -->
+<!-- 		            <message> -->
+<!-- 		                <pattern> -->
+<!-- 		                    { -->
+<!-- 			                    "level":"%level", -->
+<!-- 			                    "class":"%logger{36}", -->
+<!-- 			                    "thread":"%thread", -->
+<!-- 			                    "message": "%message" -->
+<!-- 		                    } -->
+<!-- 		                </pattern> -->
+<!-- 		            </message> -->
+<!-- 		        </format> -->
+<!-- 		    </appender> -->
 		    
-			<logger name="com.zonesoft" level="DEBUG" additivity="false">
-				<appender-ref ref="LOKI"/>
-			</logger>
+<!-- 			<logger name="com.zonesoft" level="DEBUG" additivity="false"> -->
+<!-- 				<appender-ref ref="LOKI"/> -->
+<!-- 			</logger> -->
 			
-			<root level="INFO">
-				<appender-ref ref="LOKI" />
-			</root>
-		</then>
-	</if>
+<!-- 			<root level="INFO"> -->
+<!-- 				<appender-ref ref="LOKI" /> -->
+<!-- 			</root> -->
+<!-- 		</then> -->
+<!-- 	</if> -->
 
 	<logger name="com.zonesoft" level="DEBUG" additivity="false">
 		<appender-ref ref="CONSOLE"/>
