@@ -14,7 +14,7 @@
 		        </http>
 		        <format>
 		            <label>
-		                <pattern>org=${org},app=${name},host=${HOSTNAME},level=%level</pattern>
+		                <pattern>org=${org},app=${name},host=${HOSTNAME},traceID=%X{traceId:-NONE},spanID=%X{spanId:-NONE},level=%level</pattern>
 		                <readMarkers>true</readMarkers>
 		            </label>
 		            <message>
