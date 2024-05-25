@@ -9,13 +9,6 @@
 	<artifactId>greeting-service</artifactId>
 	<name>greeting-service</name>
 	<description>A very basic greeting web service</description>
-<!--	<dependencies>-->
-<!--		<dependency>-->
-<!--			<groupId>com.zonesoft</groupId>-->
-<!--			<artifactId>hello-world-utils</artifactId>-->
-<!--			<version>0.0.1-SNAPSHOT</version>			-->
-<!--		</dependency>		-->
-<!--	</dependencies>	-->
 	<build>
 		<plugins>
 			<plugin>
