@@ -14,6 +14,13 @@
 		<module>clock-service</module>
 		<module>calendar-service</module>
 	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>com.zonesoft</groupId>
+			<artifactId>hello-world-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>			
+		</dependency>		
+	</dependencies>	
 	<build>
 		<plugins>
 			<plugin>
