@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 public class DoNothing {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DoNothing.class);
 	private static final int MINIMUM_WAIT_MS =30;
-	private static final int MAXIMUM_WAIT_MS = 2100;
+	private static final int MAXIMUM_WAIT_MS = 1500;
 	
 	public static void pretendDoingSomething() {
         try {

@@ -1,12 +1,13 @@
-package com.zonesoft.reference.ui.hello_world.clients;
+package com.zonesoft.reference.ui.hello_world.client.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
+import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
+
 
 @Configuration
-public class GreetingServiceClientConfigs implements IClientBuilderConfigs {
+public class GreetingClientConfigs implements IClientConfigs {
 	
     @Value("${GREETING_SERVICE_PROTOCOL}")
     private String protocol;

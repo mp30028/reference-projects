@@ -1,12 +1,12 @@
-package com.zonesoft.reference.services.greeting.client_configs;
+package com.zonesoft.reference.services.greeting.client.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
+import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
 
 @Configuration
-public class CalendarClientConfigs implements IClientBuilderConfigs {
+public class CalendarClientConfigs implements IClientConfigs {
 	
     @Value("${CALENDAR_SERVICE_PROTOCOL}")
     private String protocol;

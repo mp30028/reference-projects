@@ -1,6 +1,6 @@
-package com.zonesoft.reference.utils.client_builder;
+package com.zonesoft.reference.utils.webclient.builder;
 
-public interface IClientBuilderConfigs {
+public interface IClientConfigs {
 
 	String getProtocol();
 
