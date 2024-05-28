@@ -1,0 +1,45 @@
+# This OTEL collector configuration file that aims is to extend initial setup and export telemetry data additionally to
+# Grafana stack backend services. In particular, they are:
+# - Metrics are exported to Prometheus and Grafana Agent;
+# - Traces are exported to Jaeger and Grafana Agent;
+# - Logs are exported to Grafana Agent;
+# It exposes a single OTLP receiver for this purpose.
+
+# Receivers' configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#receivers
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4418
+
+# Exporters' configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#exporters
+# Important note: exporter name patter is following - `{protocol}/{exporter_name}`.
+# `exporter_name` is optional in general case, however, it must be added if there are multiple exporters using the same protocol.
+exporters:
+  # Data sources: traces
+  otlphttp/jaeger:
+    endpoint: http://jaeger:4318
+
+  otlphttp/grafana-agent:
+    endpoint: http://grafana-agent:4318
+
+  # Data sources: metrics
+  prometheus:
+    endpoint: 0.0.0.0:9094
+    namespace: products_service
+
+# Services configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#services
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlphttp/jaeger,otlphttp/grafana-agent]
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus,otlphttp/grafana-agent]
+    logs:
+      receivers: [otlp]
+      exporters: [otlphttp/grafana-agent]
