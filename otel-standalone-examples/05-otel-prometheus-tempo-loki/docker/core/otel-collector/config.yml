@@ -1,0 +1,34 @@
+# This OTEL collector configuration file with a single OTLP receiver for this purpose.
+
+# Receivers' configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#receivers
+receivers:
+  otlp:
+    protocols:
+      http:
+#        endpoint: 4418
+        endpoint: 0.0.0.0:4418
+
+# Exporters' configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#exporters
+exporters:
+  # Data sources: traces
+  otlphttp:
+    endpoint: http://jaeger:4318
+
+  # Data sources: metrics
+  prometheus:
+#    endpoint: 9094
+    endpoint: 0.0.0.0:9094
+    namespace: products_service
+
+# Services configuration section
+# See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#services
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlphttp]
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus]
