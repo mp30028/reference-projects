@@ -45,10 +45,16 @@ datasources:
   jsonData:
     httpMethod: GET
 
-#  - name: loki
-#    type: loki
-#    access: proxy
-#    url: http://loki:3100
-#    jsonData:
-#      timeout: 60
-#      maxLines: 1000
+- name: loki
+  type: loki
+  uid: loki  
+  access: proxy
+  orgId: 1
+  url: http://host.docker.internal:3100
+  basicAuth: false
+  isDefault: false
+  version: 1
+  editable: true  
+  jsonData:
+    timeout: 60
+    maxLines: 1000
