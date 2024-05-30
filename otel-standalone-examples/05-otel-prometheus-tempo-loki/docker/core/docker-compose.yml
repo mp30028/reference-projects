@@ -61,7 +61,30 @@ services:
       - products
     ports:
       - "9090:9090"
-      
+
+  # Start Grafana Tempo to receive and store tracing data
+  # This configuration is largely inspired by the Tempo local storage docker-compose example:
+  # https://github.com/grafana/tempo/blob/main/example/docker-compose/local/docker-compose.yaml
+  # It uses a latest version of the Tempo image at the time of writing.
+  #http://host.docker.internal:3200
+  tempo:
+    image: grafana/tempo:2.3.1
+    container_name: tempo
+    hostname: tempo
+    extra_hosts: 
+      - host.docker.internal:host-gateway    
+    command:
+      - "-config.file=/etc/grafana-tempo.yaml"
+    restart: always
+    volumes:
+      - ./tempo/config.yml:/etc/grafana-tempo.yaml
+    ports:
+      - "5317:4317"  # otlp grpc
+      - "5318:4318"  # otlp http
+      - "3200:3200"  # tempo
+    networks:
+      - products
+            
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.93.0
     container_name: otel-collector
