@@ -84,7 +84,27 @@ services:
       - "3200:3200"  # tempo
     networks:
       - products
-            
+
+  # Starts Grafana Loki to receive and store logs data.
+  # This configuration is largely inspired by the following documentation:
+  # https://grafana.com/docs/loki/latest/setup/install/docker/
+  # It uses the latest version of the Loki image at the time of writing.
+  #http://host.docker.internal:3100
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: loki
+    hostname: loki
+    extra_hosts: 
+      - host.docker.internal:host-gateway      
+    command: ["-config.file=/etc/loki/grafana-loki.yaml"]
+    restart: always
+    volumes:
+      - ./loki/config.yml:/etc/loki/grafana-loki.yaml
+    ports:
+      - "3100:3100" # Loki port
+    networks:
+      - products
+                  
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.93.0
     container_name: otel-collector
