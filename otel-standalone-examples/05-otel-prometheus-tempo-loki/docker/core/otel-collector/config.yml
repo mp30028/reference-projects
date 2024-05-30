@@ -5,6 +5,7 @@
 receivers:
   otlp:
     protocols:
+      grpc:
       http:
 #        endpoint: 4418
         endpoint: 0.0.0.0:4418
@@ -24,6 +25,13 @@ exporters:
 #    endpoint: 9094
     endpoint: 0.0.0.0:9094
     namespace: products_service
+    
+  # Data sources: logging
+  logging:
+    loglevel: debug
+  
+  loki:
+    endpoint: "http://loki:3100/loki/api/v1/push"
 
 # Services configuration section
 # See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#services
@@ -35,3 +43,6 @@ service:
     metrics:
       receivers: [otlp]
       exporters: [prometheus]
+    logs:
+      receivers: [otlp]
+      exporters: [loki,logging]
