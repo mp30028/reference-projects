@@ -9,6 +9,12 @@
 	<artifactId>greeting-service</artifactId>
 	<name>greeting-service</name>
 	<description>A very basic greeting web service</description>
+	<!-- <dependencies> -->
+		<!-- <dependency> -->
+			<!-- <groupId>io.opentelemetry.instrumentation</groupId> -->
+			<!-- <artifactId>opentelemetry-spring-boot-starter</artifactId> -->
+		<!-- </dependency>		 -->
+	<!-- </dependencies> 	 -->
 	<build>
 		<plugins>
 			<plugin>

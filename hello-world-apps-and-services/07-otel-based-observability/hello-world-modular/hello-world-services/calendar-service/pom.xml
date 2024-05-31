@@ -9,6 +9,12 @@
 	<artifactId>calendar-service</artifactId>
 	<name>calendar-service</name>
 	<description>A very basic web service to get the current date</description>
+	<!-- <dependencies> -->
+		<!-- <dependency> -->
+			<!-- <groupId>io.opentelemetry.instrumentation</groupId> -->
+			<!-- <artifactId>opentelemetry-spring-boot-starter</artifactId> -->
+		<!-- </dependency>		 -->
+	<!-- </dependencies> 	 -->
 	<build>
 		<plugins>
 			<plugin>

@@ -19,7 +19,7 @@
 			<groupId>com.zonesoft</groupId>
 			<artifactId>hello-world-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
-		</dependency>		
+		</dependency>
 	</dependencies>	
 	<build>
 		<plugins>
