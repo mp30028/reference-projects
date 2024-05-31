@@ -45,7 +45,7 @@ datasources:
   jsonData:
     httpMethod: GET
 
-- name: loki
+- name: Loki
   type: loki
   uid: loki  
   access: proxy
