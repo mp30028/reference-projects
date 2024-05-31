@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+    <springProperty scope="context" name="OTEL_LOGS_ENABLED" source="OTEL_LOGS_ENABLED" />
+    <if condition='property("OTEL_LOGS_ENABLED").equals("true")'>
+    	<then>
+		    <appender name="OTEL" class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
+		        <captureExperimentalAttributes>true</captureExperimentalAttributes>
+		        <captureCodeAttributes>true</captureCodeAttributes>
+		        <captureMarkerAttribute>true</captureMarkerAttribute>
+		        <captureKeyValuePairAttributes>true</captureKeyValuePairAttributes>
+		        <captureLoggerContext>true</captureLoggerContext>
+		        <captureMdcAttributes>*</captureMdcAttributes>
+		    </appender>
+			<logger name="com.zonesoft" level="DEBUG" additivity="false">
+				<appender-ref ref="OTEL"/>
+			</logger>
+			
+			<root level="INFO">
+				<appender-ref ref="OTEL" />
+			</root>
+		</then>
+	</if>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>  		
+	<logger name="com.zonesoft" level="DEBUG" additivity="false">
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

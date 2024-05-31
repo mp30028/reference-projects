@@ -1,0 +1,35 @@
+global:
+    scrape_interval: 20s
+    evaluation_interval: 20s
+
+scrape_configs:
+    - job_name: 'prometheus'
+      static_configs:
+        - targets: 
+          - prometheus:9090
+#          - cadvisor:9200
+#          - node-exporter:9100          
+    
+    - job_name: 'hello-world-ui'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: 
+          - host.docker.internal:8283
+
+    - job_name: 'greeting-service'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: 
+          - host.docker.internal:8284
+
+    - job_name: 'time-services'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: 
+          - host.docker.internal:8285
+          
+    - job_name: 'date-services'
+      metrics_path: '/actuator/prometheus'
+      static_configs:
+        - targets: 
+          - host.docker.internal:8286 
