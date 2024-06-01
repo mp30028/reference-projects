@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
-    <springProperty scope="context" name="OTEL_LOGS_ENABLED" source="OTEL_LOGS_ENABLED" />
+    <springProperty scope="context" name="OTEL_LOGS_ENABLED" source="otel.instrumentation.logback-appender.enabled" />
     <if condition='property("OTEL_LOGS_ENABLED").equals("true")'>
     	<then>
 		    <appender name="OTEL" class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
@@ -16,7 +16,7 @@
 				<appender-ref ref="OTEL"/>
 			</logger>
 			
-			<root level="INFO">
+			<root level="DEBUG">
 				<appender-ref ref="OTEL" />
 			</root>
 		</then>

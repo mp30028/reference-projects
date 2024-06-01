@@ -24,7 +24,7 @@ exporters:
   prometheus:
 #    endpoint: 9094
     endpoint: 0.0.0.0:9094
-    namespace: hello_world_apps
+#    namespace: hello_world_apps
     
 #  # Data sources: logging
 #  logging:

@@ -1,26 +1,24 @@
-package com.zonesoft.reference.ui.hello_world.client;
+package com.zonesoft.reference.utils.webclient.helper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClient.Builder;
 
-//import com.zonesoft.reference.services.greeting.client.configs.CalendarClientConfigs;
-//import com.zonesoft.reference.services.greeting.client.configs.ClockClientConfigs;
 import com.zonesoft.reference.utils.ToStringHelper;
-import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
-
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
-public class WebClients {
-	private static final Logger LOGGER = LoggerFactory.getLogger(WebClients.class);
+
+public class WebClientHelper {
+	private static final Logger LOGGER = LoggerFactory.getLogger(WebClientHelper.class);
 	
-	public WebClient getWebClient(IClientConfigs configs) {
+	public WebClient buildClient(Builder webClientBuilder, IClientConfigs configs) {
 		HttpClient httpClient = HttpClient
 				.create()
 				.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 2_000)
@@ -30,13 +28,13 @@ public class WebClients {
 						.addHandlerLast(new WriteTimeoutHandler(2 /*seconds*/))
 				); 
 
-		return WebClient.builder()
+		return webClientBuilder
 				.baseUrl(configs.getProtocol() + "://" + configs.getDomain() + ":" + configs.getPort())
 				.clientConnector(new ReactorClientHttpConnector(httpClient))
 				.defaultCookie("client-name", configs.getClientName())
 				.defaultCookie("client-type", configs.getClientType())
 				.filter(logRequest()).filter(logResponse())
-				.build();		
+				.build();	
 	}	
 	
 	private ExchangeFilterFunction logRequest() {

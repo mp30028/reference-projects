@@ -1,4 +1,4 @@
-package com.zonesoft.reference.utils.webclient.builder;
+package com.zonesoft.reference.utils.webclient.helper;
 
 public interface IClientConfigs {
 

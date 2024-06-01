@@ -3,7 +3,7 @@ package com.zonesoft.reference.ui.hello_world.client.configs;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
+import com.zonesoft.reference.utils.webclient.helper.IClientConfigs;
 
 
 @Configuration
