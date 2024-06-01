@@ -3,7 +3,7 @@ package com.zonesoft.reference.services.greeting.client.configs;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
+import com.zonesoft.reference.utils.webclient.helper.IClientConfigs;
 
 @Configuration
 public class CalendarClientConfigs implements IClientConfigs {

@@ -2,29 +2,32 @@ package com.zonesoft.reference.ui.hello_world.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import com.zonesoft.reference.ui.hello_world.client.WebClients;
 import com.zonesoft.reference.ui.hello_world.client.configs.GreetingClientConfigs;
-import com.zonesoft.reference.utils.webclient.builder.IClientConfigs;
+import com.zonesoft.reference.utils.webclient.helper.IClientConfigs;
+import com.zonesoft.reference.utils.webclient.helper.WebClientHelper;
 
 
 @Controller
 public class FrontController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FrontController.class);
+	private static final WebClientHelper webClientHelper = new WebClientHelper();
 	private final IClientConfigs greetingConfigs;
-	private final WebClients webClients;
+	private final WebClient greetingClient;
+	
 
-	public FrontController(WebClients webClients, GreetingClientConfigs greetingConfigs) {
+	@Autowired
+	public FrontController(WebClient.Builder webClientBuilder, GreetingClientConfigs greetingConfigs ) {
 		super();
-		this.webClients = webClients;
+		this.greetingClient = webClientHelper.buildClient(webClientBuilder, greetingConfigs);
 		this.greetingConfigs = greetingConfigs;
 	}
-
+	
 	@GetMapping(value = { "show-greeting" })
 	@ResponseBody
 	public String greeting() {
@@ -41,8 +44,8 @@ public class FrontController {
 	}
 	
 	private String invokeService(IClientConfigs configs) {
-		WebClient wc = webClients.getWebClient(configs);
-		String result = wc
+
+		String result = this.greetingClient
 				.get()
 				.uri(uriBuilder -> {
 					return uriBuilder.path(configs.getPath()).build();
@@ -56,20 +59,5 @@ public class FrontController {
 				})
 				.block();
 		return result;
-	}
-	
-//	private String getMessage() {
-//
-//		return this.greetingServiceWebClient
-//				.get()
-//				.uri(uriBuilder -> uriBuilder.path(greetingConfigs.getPath()).build())
-//				.exchangeToMono(r -> {
-//					if (r.statusCode().equals(HttpStatus.OK)) {
-//						return r.bodyToMono(String.class);
-//					} else {
-//						throw new RuntimeException("Error invoking Greeting Service");
-//					}
-//				})
-//				.block();
-//	}
+	}	
 }
