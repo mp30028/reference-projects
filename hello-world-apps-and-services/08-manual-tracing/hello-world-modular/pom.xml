@@ -68,7 +68,11 @@
 		<dependency>
 		    <groupId>org.codehaus.janino</groupId>
 		    <artifactId>janino</artifactId>
-		</dependency>
+		</dependency>				
+		<dependency>
+		    <groupId>io.opentelemetry</groupId>
+		    <artifactId>opentelemetry-api-incubator</artifactId>
+		</dependency>		
 	</dependencies>
 
 </project>
