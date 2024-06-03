@@ -1,0 +1,112 @@
+# Orchestrates the start up of otel-collector based monitoring components as per the
+# architecture depicted in the notes.
+
+services:
+
+  # Start Jeager for traces storage.
+  # UI is available at http://localhost:16686
+  # See for more details: https://www.jaegertracing.io/docs/1.53/getting-started/#all-in-one
+  jaeger:
+    image: jaegertracing/all-in-one:1.53
+    container_name: jaeger
+    hostname: jaeger
+    restart: always
+    networks:
+      - hello_world_back_tier
+    ports:
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+      
+  # Start prometheus that will collect metrics from the OTEL collector.
+  # The UI is available at http://localhost:9090
+  prometheus:
+    image: prom/prometheus:v2.33.3
+    container_name: prometheus
+    hostname: prometheus
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: always
+    volumes:
+      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - hello_world_back_tier
+    ports:
+      - "9090:9090"
+
+  # Start Grafana Tempo to receive and store tracing data
+  # This configuration is largely inspired by the Tempo local storage docker-compose example:
+  # https://github.com/grafana/tempo/blob/main/example/docker-compose/local/docker-compose.yaml
+  # It uses a latest version of the Tempo image at the time of writing.
+  #http://host.docker.internal:3200
+  tempo:
+    image: grafana/tempo:2.3.1
+    container_name: tempo
+    hostname: tempo
+    extra_hosts: 
+      - host.docker.internal:host-gateway    
+    command:
+      - "-config.file=/etc/grafana-tempo.yaml"
+    restart: always
+    volumes:
+      - ./tempo/config.yml:/etc/grafana-tempo.yaml
+    ports:
+      - "5317:4317"  # otlp grpc
+      - "5318:4318"  # otlp http
+      - "3200:3200"  # tempo
+    networks:
+      - hello_world_back_tier
+
+  # Starts Grafana Loki to receive and store logs data.
+  # This configuration is largely inspired by the following documentation:
+  # https://grafana.com/docs/loki/latest/setup/install/docker/
+  # It uses the latest version of the Loki image at the time of writing.
+  #http://host.docker.internal:3100
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: loki
+    hostname: loki
+    extra_hosts: 
+      - host.docker.internal:host-gateway      
+    command: ["-config.file=/etc/loki/grafana-loki.yaml"]
+    restart: always
+    volumes:
+      - ./loki/config.yml:/etc/loki/grafana-loki.yaml
+    ports:
+      - "3100:3100" # Loki port
+    networks:
+      - hello_world_back_tier
+                  
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.93.0
+    container_name: otel-collector
+    hostname: otel-collector
+    extra_hosts: 
+      - host.docker.internal:host-gateway
+    volumes:
+      - ./otel-collector/config.yml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - "9094:9094" # Prometheus http exporter
+      - "4418:4418" # OTLP http receiver
+    networks:
+      - hello_world_back_tier
+
+  grafana:
+    image: grafana/grafana:10.2.2
+    container_name: grafana    
+    restart: always
+    volumes:
+      - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yaml
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+      - GF_FEATURE_TOGGLES_ENABLE=traceqlEditor traceQLStreaming metricsSummary
+    ports:
+      - "3000:3000"
+    networks:
+      - hello_world_back_tier
+      
+networks: 
+  hello_world_back_tier: 
+    name: hello_world_back_tier
