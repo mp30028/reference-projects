@@ -15,7 +15,7 @@ public class DoNothing {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DoNothing.class);
 	private static final String INSTRUMENTATION_NAME = DoNothing.class.getName();
 	private static final int MINIMUM_WAIT_MS =30;
-	private static final int MAXIMUM_WAIT_MS = 1900;
+	private static final int MAXIMUM_WAIT_MS = 1200;
 	private final OpenTelemetry openTelemetry;
 	
 	public DoNothing(OpenTelemetry openTelemetry) {

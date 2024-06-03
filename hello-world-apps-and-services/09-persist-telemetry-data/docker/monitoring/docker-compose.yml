@@ -1,38 +1,41 @@
 # Orchestrates the start up of otel-collector based monitoring components as per the
 # architecture depicted in the notes.
+# validate this file by running `docker-compose config`
 
 services:
 
-  # Start Jeager for traces storage.
-  # UI is available at http://localhost:16686
-  # See for more details: https://www.jaegertracing.io/docs/1.53/getting-started/#all-in-one
-  jaeger:
-    image: jaegertracing/all-in-one:1.53
-    container_name: jaeger
-    hostname: jaeger
-    restart: always
-    networks:
-      - hello_world_back_tier
-    ports:
-      - "16686:16686"
-      - "4317:4317"
-      - "4318:4318"
-      
-  # Start prometheus that will collect metrics from the OTEL collector.
-  # The UI is available at http://localhost:9090
   prometheus:
-    image: prom/prometheus:v2.33.3
+    image: prom/prometheus:v2.45.5
     container_name: prometheus
     hostname: prometheus
     extra_hosts:
       - host.docker.internal:host-gateway
-    restart: always
     volumes:
-      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
+      - type: bind
+        source: ${PROMETHEUS_CONFIG_FILE:-./prometheus/config.yml}
+        target: /etc/prometheus/prometheus.yml
+        read_only: true
+      - type: bind
+        source: ${PROMETHEUS_DATA_FOLDER:-../../../../prometheus-data}
+        target: /prometheus
+        read_only: false
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--enable-feature=exemplar-storage'
+    ports:
+      - mode: ingress
+        target: 9090
+        published: ${PROMETHEUS_PORT:-9090}
+        protocol: tcp
     networks:
       - hello_world_back_tier
-    ports:
-      - "9090:9090"
+    restart: ${PROMETHEUS_RESTART:-always}
+    depends_on:
+      - otel-collector    
+    logging:
+      options:
+        max-size: 2048m
 
   # Start Grafana Tempo to receive and store tracing data
   # This configuration is largely inspired by the Tempo local storage docker-compose example:
@@ -90,6 +93,9 @@ services:
       - "4418:4418" # OTLP http receiver
     networks:
       - hello_world_back_tier
+    depends_on:
+      - loki
+      - tempo
 
   grafana:
     image: grafana/grafana:10.2.2
@@ -109,4 +115,5 @@ services:
       
 networks: 
   hello_world_back_tier: 
-    name: hello_world_back_tier
+    name: ${NETWORK_NAME:-hello_world_back_tier}
+    external: ${NETWORK_EXTERNAL:-false}
