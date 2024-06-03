@@ -7,22 +7,18 @@ receivers:
     protocols:
       grpc:
       http:
-#        endpoint: 4418
         endpoint: 0.0.0.0:4418
 
 # Exporters' configuration section
 # See for more details following documentation: https://opentelemetry.io/docs/collector/configuration/#exporters
 exporters:
   # Data sources: traces
-
   otlphttp/tempo:
     endpoint: http://tempo:4318
     
   # Data sources: metrics
   prometheus:
-#    endpoint: 9094
     endpoint: 0.0.0.0:9094
-#    namespace: hello_world_apps
     
   loki:
     endpoint: http://loki:3100/loki/api/v1/push

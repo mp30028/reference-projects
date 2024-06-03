@@ -1,5 +1,7 @@
-# Simple configuration for Loki to store logs in a local file system.
-# See for more details: https://grafana.com/docs/loki/latest/configure/examples/#1-local-configuration-exampleyaml
+# These configs taken from https://grafana.com/docs/loki/latest/configure/examples/configuration-examples/
+# This is a complete configuration to deploy Loki backed by the filesystem.
+# The index will be shipped to the storage via tsdb-shipper.
+
 auth_enabled: false
 
 server:
@@ -7,18 +9,25 @@ server:
 
 common:
   ring:
-    instance_addr: loki  
+    instance_addr: loki
     kvstore:
       store: inmemory
   replication_factor: 1
-  path_prefix: /tmp/loki
+  path_prefix: /loki
 
 schema_config:
   configs:
-    - from: 2020-05-15
-      store: boltdb-shipper
-      object_store: filesystem
-      schema: v11
-      index:
-        prefix: index_
-        period: 24h
+  - from: 2020-05-15
+    store: tsdb
+    object_store: filesystem
+    schema: v13
+    index:
+      prefix: index_
+      period: 24h
+
+storage_config:
+  filesystem:
+    directory: /loki/chunks
+    
+limits_config:
+  ingestion_rate_strategy: local
