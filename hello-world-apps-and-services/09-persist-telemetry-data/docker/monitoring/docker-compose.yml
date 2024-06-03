@@ -16,7 +16,7 @@ services:
         target: /etc/prometheus/prometheus.yml
         read_only: true
       - type: bind
-        source: ${PROMETHEUS_DATA_FOLDER:-../../../../prometheus-data}
+        source: ${PROMETHEUS_DATA_FOLDER:-../../../../../prometheus-data}
         target: /prometheus
         read_only: false
     command:
