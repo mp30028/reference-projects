@@ -50,6 +50,7 @@ _scratches/*
 ##############################
 ## environment variables
 ##############################
+env.properties
 .env.*
 .env
 # !_configs/defaults/.env
