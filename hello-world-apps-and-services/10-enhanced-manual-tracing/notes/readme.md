@@ -72,3 +72,8 @@ otel.logs.exporter=otlp
 otel.exporter.otlp.endpoint=${ENV_OTEL_EXPORTER_ENDPOINT:${OTEL_EXPORTER_ENDPOINT}}
 otel.instrumentation.logback-appender.enabled=${ENV_OTEL_LOGS_ENABLED:${OTEL_LOGS_ENABLED}}
 ```
+
+
+## Instrumenting methods manually with annotations
+[Documentation](https://opentelemetry.io/docs/zero-code/java/spring-boot-starter/annotations/)
+

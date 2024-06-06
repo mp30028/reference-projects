@@ -6,25 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.zonesoft.reference.ui.hello_world.services.GreetingService;
+import com.zonesoft.reference.ui.hello_world.services.GreetingClientService;
 
 
 @Controller
 public class FrontController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FrontController.class);
-	private final GreetingService greetingService;
+	private final GreetingClientService greetingClientService;
 
 	@Autowired
-	public FrontController(GreetingService greetingService) {
+	public FrontController(GreetingClientService greetingClientService) {
 		super();
-		this.greetingService = greetingService;
+		this.greetingClientService = greetingClientService;
 	}
 	
 	@GetMapping(value = { "show-greeting" })
 	@ResponseBody
 	public String greeting() {
 		LOGGER.debug("Request to show greting received");
-		String serviceMessage = greetingService.invoke();
+		String serviceMessage = greetingClientService.invoke();
 		LOGGER.debug("Greeting Service invoked and returned the following message:-{}", serviceMessage);
 		StringBuilder htmlResponse = new StringBuilder();
 		htmlResponse.append("<h3>Here is the message from greeting service</h3>");
