@@ -10,6 +10,9 @@ On command-prompt `echo %JAVA_HOME%`<br/>
 ## How to use .env files with spring boot
 [A short but very useful article](https://www.surly.dev/articles/how-to-use-env-files-with-spring-boot)
 
+## Configuring OpenTelemetryAppender for logback
+[Official Documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation/logback/logback-appender-1.0/library)
+
 ## Issues
 ### 1. Eclipse build warnings - Unsolved
 ![screenshot](./images/build-warnings.png)<br/>
