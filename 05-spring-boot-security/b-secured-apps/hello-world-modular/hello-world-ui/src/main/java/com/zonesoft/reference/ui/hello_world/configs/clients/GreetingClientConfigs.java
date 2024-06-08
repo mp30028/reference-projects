@@ -1,4 +1,4 @@
-package com.zonesoft.reference.ui.hello_world.client.configs;
+package com.zonesoft.reference.ui.hello_world.configs.clients;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

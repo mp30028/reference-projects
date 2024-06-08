@@ -12,7 +12,7 @@ public class HomeController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-	@GetMapping(value={"","/"})
+	@GetMapping(value={"","/","/signed-out"})
 	@ResponseBody
 	public String greeting( ) {
 		LOGGER.debug("Request for static content received");

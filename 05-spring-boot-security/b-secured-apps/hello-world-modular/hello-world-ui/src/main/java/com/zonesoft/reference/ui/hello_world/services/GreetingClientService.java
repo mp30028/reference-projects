@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.zonesoft.reference.ui.hello_world.client.configs.GreetingClientConfigs;
+import com.zonesoft.reference.ui.hello_world.configs.clients.GreetingClientConfigs;
 import com.zonesoft.reference.utils.webclient.helper.IClientConfigs;
 import com.zonesoft.reference.utils.webclient.helper.WebClientHelper;
 
