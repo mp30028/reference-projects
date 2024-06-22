@@ -43,7 +43,30 @@ public class HomeController {
 	}	
 	
 	@GetMapping(value = { "/login" })
-	public String loginPage() {	
-		return "signon";
+	@ResponseBody	
+	public String loginPage() {
+		LOGGER.debug("Request received by loginPage");
+		StringBuilder htmlResponse = new StringBuilder();
+		htmlResponse.append("<!DOCTYPE html>");
+		htmlResponse.append("<html lang='en'>");
+			htmlResponse.append("<head>");
+				htmlResponse.append("<title>Hello World Services Login</title>");
+			htmlResponse.append("</head>");
+			htmlResponse.append("<body>");
+				htmlResponse.append("<form method='post' action='/login'>");
+					htmlResponse.append("<h4>Hello World Sign-In</h4>");
+					htmlResponse.append("<p>");
+						htmlResponse.append("<label for='username'>Username</label>");
+						htmlResponse.append("<input type='text' id='username' name='username' placeholder='Username' required autofocus>");
+					htmlResponse.append("</p>");
+					htmlResponse.append("<p>");
+						htmlResponse.append("<label for='password' class='sr-only'>Password</label>");
+						htmlResponse.append("<input type='password' id='password' name='password' class='form-control' placeholder='Password' required>");
+					htmlResponse.append("</p>");
+					htmlResponse.append("<button type='submit'>Sign-In</button>");
+				htmlResponse.append("</form>");
+			htmlResponse.append("</body>");
+		htmlResponse.append("</html>");		
+		return htmlResponse.toString();
 	}
 }

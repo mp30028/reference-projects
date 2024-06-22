@@ -33,7 +33,8 @@ public class WebSecurityConfig {
 			    .clearAuthentication(true)
 			    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			    .logoutSuccessUrl("/signed-out")
-			    .permitAll());
+			    .permitAll())
+            .csrf((csrf) -> csrf.disable());
 		return http.build();
 	}
 	
