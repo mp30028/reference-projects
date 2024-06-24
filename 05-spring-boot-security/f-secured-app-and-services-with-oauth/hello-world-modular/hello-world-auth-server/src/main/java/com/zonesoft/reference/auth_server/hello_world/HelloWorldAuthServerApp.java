@@ -1,4 +1,4 @@
-package com.zonesoft.reference.ui.hello_world;
+package com.zonesoft.reference.auth_server.hello_world;
 
 import java.util.Arrays;
 
