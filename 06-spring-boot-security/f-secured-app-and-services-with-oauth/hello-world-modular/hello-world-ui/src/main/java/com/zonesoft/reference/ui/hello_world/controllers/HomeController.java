@@ -27,6 +27,11 @@ public class HomeController {
 		htmlResponse.append("</h3>");
 		return htmlResponse.toString();
 	}
+	
+    @GetMapping("favicon.ico")
+    @ResponseBody
+    void returnNoFavicon() {
+    }
 
 	@GetMapping(value={"/signed-out"})
 	@ResponseBody
