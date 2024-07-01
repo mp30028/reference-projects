@@ -3,10 +3,12 @@ package com.zonesoft.reference.utils.webclient.helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClient.Builder;
 
+//import com.zonesoft.reference.ui.hello_world.configs.clients.GreetingClientConfigs;
 import com.zonesoft.reference.utils.ToStringHelper;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -37,6 +39,11 @@ public class WebClientHelper {
 				.build();	
 	}	
 	
+	public WebClient buildClient(Builder webClientBuilder, IClientConfigs configs, ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client) {
+      webClientBuilder.apply(oauth2Client.oauth2Configuration());
+      return this.buildClient(webClientBuilder, configs);
+	}		
+	
 	private ExchangeFilterFunction logRequest() {
 
 		return (clientRequest, next) -> {
@@ -63,5 +70,4 @@ public class WebClientHelper {
 			return Mono.just(clientResponse);
 		});
 	}	
-	
 }
