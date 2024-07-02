@@ -1,7 +1,5 @@
 package com.zonesoft.reference.ui.hello_world.services;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,6 @@ import static org.springframework.security.oauth2.client.web.reactive.function.c
 
 @Service
 public class GreetingClientService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(GreetingClientService.class);
 	private final GreetingClientConfigs greetingConfigs;
 	private final WebClient greetingClient;
 	 
