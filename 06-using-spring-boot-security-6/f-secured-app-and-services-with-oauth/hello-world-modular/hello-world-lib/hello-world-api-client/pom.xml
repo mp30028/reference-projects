@@ -2,14 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zonesoft</groupId>
-    <artifactId>hello-world-modular</artifactId>
+    <artifactId>hello-world-lib</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world-utils</artifactId>
-  <name>hello-world-utils</name>
-  <description>reusable utilties</description>
+  <artifactId>hello-world-api-client</artifactId>
+  <name>hello-world-api-client</name>
+  <description>Reusable web-client helper static library to facilitate creation of OAuth2 authorised api clients</description>
   <packaging>jar</packaging> 
 	<dependencies>
+		<dependency>
+			<groupId>com.zonesoft</groupId>
+			<artifactId>hello-world-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>

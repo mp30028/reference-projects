@@ -16,9 +16,9 @@
   <description>Parent module of the hello world modular suite of applications and services</description>	
 	<modules>
 		<module>hello-world-ui</module>
-		<module>hello-world-utils</module>
 		<module>hello-world-services</module>
-		<module>hello-world-auth-server</module>		
+		<module>hello-world-auth-server</module>
+		<module>hello-world-lib</module>
 	</modules>
 	<properties>
 		<java.version>21</java.version>
