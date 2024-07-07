@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zonesoft</groupId>
+    <artifactId>hello-world-libs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>hello-world-api-client-lib</artifactId>
+  <name>hello-world-api-client-lib</name>
+  <description>Reusable web-client helper static library to facilitate creation of OAuth2 authorised api clients</description>
+  <packaging>jar</packaging> 
+	<dependencies>
+		<dependency>
+			<groupId>com.zonesoft</groupId>
+			<artifactId>hello-world-utils-lib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>		
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>		
+	</dependencies> 
+</project>
