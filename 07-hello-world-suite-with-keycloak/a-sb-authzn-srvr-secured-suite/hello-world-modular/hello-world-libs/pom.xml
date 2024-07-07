@@ -5,12 +5,12 @@
     <artifactId>hello-world-modular</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world-lib</artifactId>
+  <artifactId>hello-world-libs</artifactId>
   <packaging>pom</packaging>
-  <name>hello-world-lib</name>
+  <name>hello-world-libs</name>
   <description>Static (i.e.non runnable) reusable libraries</description>
   	<modules>
-		<module>hello-world-utils</module>
-		<module>hello-world-api-client</module>
+		<module>hello-world-utils-lib</module>
+		<module>hello-world-api-client-lib</module>
 	</modules>
 </project>

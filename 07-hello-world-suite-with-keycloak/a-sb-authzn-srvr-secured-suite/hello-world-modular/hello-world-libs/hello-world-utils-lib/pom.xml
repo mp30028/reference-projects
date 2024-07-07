@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zonesoft</groupId>
-    <artifactId>hello-world-lib</artifactId>
+    <artifactId>hello-world-libs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world-utils</artifactId>
-  <name>hello-world-utils</name>
+  <artifactId>hello-world-utils-lib</artifactId>
+  <name>hello-world-utils-lib</name>
   <description>reusable utilties packaged as a static library</description>
   <packaging>jar</packaging>  
 </project>

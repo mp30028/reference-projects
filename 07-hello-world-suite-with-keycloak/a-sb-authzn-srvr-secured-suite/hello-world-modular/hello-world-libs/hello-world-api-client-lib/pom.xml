@@ -2,17 +2,17 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zonesoft</groupId>
-    <artifactId>hello-world-lib</artifactId>
+    <artifactId>hello-world-libs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>hello-world-api-client</artifactId>
-  <name>hello-world-api-client</name>
+  <artifactId>hello-world-api-client-lib</artifactId>
+  <name>hello-world-api-client-lib</name>
   <description>Reusable web-client helper static library to facilitate creation of OAuth2 authorised api clients</description>
   <packaging>jar</packaging> 
 	<dependencies>
 		<dependency>
 			<groupId>com.zonesoft</groupId>
-			<artifactId>hello-world-utils</artifactId>
+			<artifactId>hello-world-utils-lib</artifactId>
 			<version>0.0.1-SNAPSHOT</version>		
 		</dependency>
 		<dependency>

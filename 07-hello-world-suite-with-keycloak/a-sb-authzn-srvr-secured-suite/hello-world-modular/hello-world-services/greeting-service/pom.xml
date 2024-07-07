@@ -12,7 +12,7 @@
     <dependencies>
 		<dependency>
 			<groupId>com.zonesoft</groupId>
-			<artifactId>hello-world-api-client</artifactId>
+			<artifactId>hello-world-api-client-lib</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
 		</dependency>		
         <dependency>
