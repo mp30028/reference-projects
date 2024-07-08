@@ -1,9 +1,10 @@
 ##############################
 ## key files
 ##############################
-.key
-*.key
-*.keyx
+!localhost.key
+!keycloak.key
+#*.key
+
 
 ##############################
 ## Allow SSLPoke.class
