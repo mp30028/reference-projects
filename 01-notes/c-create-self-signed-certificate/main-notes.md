@@ -7,7 +7,7 @@ These notes describe how to <br/>
 ## 1. Create a self signed certificate	using openssl
 On Windows in the wsl-ubuntu distribution run the following command<br/>
 <br/>
-`openssl req -config keycloak-cert.config -newkey rsa -x509 -days 3650 -out keycloak.crt`<br/>
+`openssl req -config loclahost-cert.config -newkey rsa -x509 -days 3650 -out keycloak.crt`<br/>
 <br/>
 NB: it requires a config file called localhost-cert.config. A sample copy of this [file can be found here](./localhost-cert.config)<br/>
 This will generate two files called `localhost.crt` and `localhost.key`
