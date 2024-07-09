@@ -36,7 +36,7 @@ This step maybe necessary to resolve application start up failures due to *PKIX 
 This exception crops up when using self signed certificates because of a missing **root CA certificate** in the jvm's keystore.<br/>
 To fix the issue it is necessary to import a **CA root certificate** into the JVM trust store<br/>
 
-1. Locate the java home. On windows powershell run `gcm -All java`
+1. Locate the java home. On windows powershell run `gcm -All java` or `Get-Command -All java`
 ![02-java-home-location](./images/02-java-home-location.png)
 
 2. Change dir to java home bin e.g. `cd 'C:\Program Files\Java\jdk-21.0.1\bin\'`
