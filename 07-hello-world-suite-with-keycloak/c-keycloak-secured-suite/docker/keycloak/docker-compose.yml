@@ -28,7 +28,7 @@ services:
         timeout: 20s
         retries: 10
     networks:
-    - kcnet
+    - hello_world_back_tier
 
   keycloak-app:
     container_name: keycloak-app
@@ -53,10 +53,10 @@ services:
       #KEYCLOAK_FRONTEND_URL: https://localhost:4499/login/oauth2/code/policy-engine-ui
       KC_DB_URL_PORT: ${KC_DB_URL_PORT:-3333}
     networks:
-      - kcnet
+      - hello_world_back_tier
     volumes:
-      - ${HOST_CERTIFICATE_FILE:-./certs/keycloak.crt}:${CERTIFICATE_FILE:-/certs/keycloak.crt}
-      - ${HOST_CERTIFICATE_KEY_FILE:-./certs/keycloak.key}:${CERTIFICATE_KEY_FILE:-/certs/keycloak.key}
+      - ${HOST_CERTIFICATE_FILE:-../../certs/localhost.crt}:${CERTIFICATE_FILE:-/certs/keycloak.crt}
+      - ${HOST_CERTIFICATE_KEY_FILE:-../../certs/localhost.key}:${CERTIFICATE_KEY_FILE:-/certs/keycloak.key}
     ports:
       - ${KC_HTTPS_PORT:-4499}:${KC_HTTPS_PORT:-4499}
     command: ${KEYCLOAK_START_COMMAND:---verbose start-dev --hostname-port=${KC_HTTPS_PORT:-4499}}
@@ -65,6 +65,11 @@ services:
       keycloak-db:
          condition: service_healthy
 
-networks:
-  kcnet:
-    name: db_kcnet
+#networks:
+#  kcnet:
+#    name: db_kcnet
+
+networks: 
+  hello_world_back_tier: 
+    name: ${NETWORK_NAME:-hello_world_back_tier}
+    external: ${NETWORK_EXTERNAL:-false}
