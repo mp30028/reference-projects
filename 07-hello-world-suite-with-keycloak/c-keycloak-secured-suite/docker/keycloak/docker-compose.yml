@@ -72,4 +72,4 @@ services:
 networks: 
   hello_world_back_tier: 
     name: ${NETWORK_NAME:-hello_world_back_tier}
-    external: ${NETWORK_EXTERNAL:-false}
+    external: ${NETWORK_EXTERNAL:-true}
