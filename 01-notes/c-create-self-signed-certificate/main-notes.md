@@ -2,7 +2,7 @@
 These notes describe how to <br/>
   ***i.***   create a self signed certificate<br/>
   ***ii.***  convert the self signed certificates in to ***pkcs12*** format, i.e. the format that java applications can use <br/>
-  ***iii.*** setup an application to use ssl
+  ***iii.*** setup an application to use ssl <br/>
   ***iv.*** import the CA root certificate so that the JVM can validate and trust the self signed certificate
 
 ## 1. Create a self signed certificate	using openssl
@@ -36,16 +36,16 @@ This step maybe necessary to resolve application start up failures due to *PKIX 
 This exception crops up when using self signed certificates because of a missing **root CA certificate** in the jvm's keystore.<br/>
 To fix the issue it is necessary to import a **CA root certificate** into the JVM trust store<br/>
 
-1. Locate the java home. On windows powershell run `gcm -All java` or `Get-Command -All java`
+  ***i.*** Locate the java home. On windows powershell run `gcm -All java` or `Get-Command -All java`
 ![02-java-home-location](./images/02-java-home-location.png)
 
-2. Change dir to java home bin e.g. `cd 'C:\Program Files\Java\jdk-21.0.1\bin\'`
+  ***ii.*** Change dir to java home bin e.g. `cd 'C:\Program Files\Java\jdk-21.0.1\bin\'`
 
-3. Check the location of the trust store. By default this is cacert file in `ls ..\lib\security\cacerts` relative to the java home bin directory
+  ***iii.*** Check the location of the trust store. By default this is cacert file in `ls ..\lib\security\cacerts` relative to the java home bin directory
 
-4. Delete any existing entries to avoid collisions `keytool -delete -alias localhost -cacerts`
+  ***iv.*** Delete any existing entries to avoid collisions `keytool -delete -alias localhost -cacerts`
 
-5. Import the self signed cert and this will automatically add the CA root cert and the rest of the chain
+  ***v.*** Import the self signed cert and this will automatically add the CA root cert and the rest of the chain
 ` keytool -importcert -alias localhost -cacerts -storepass changeit -file path\to\localhost.crt`
 ![03-import-cert](./images/03-import-cert.png)
 
