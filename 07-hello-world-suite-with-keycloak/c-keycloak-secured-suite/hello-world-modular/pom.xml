@@ -17,7 +17,7 @@
 	<modules>
 		<module>hello-world-ui</module>
 		<module>hello-world-services</module>
-		<module>hello-world-auth-server</module>
+<!--		<module>hello-world-auth-server</module>-->
 		<module>hello-world-libs</module>
 	</modules>
 	<properties>
