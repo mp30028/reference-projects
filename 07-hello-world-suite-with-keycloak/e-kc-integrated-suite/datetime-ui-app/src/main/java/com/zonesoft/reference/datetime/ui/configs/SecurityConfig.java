@@ -23,7 +23,7 @@ public class SecurityConfig {
 //       	);
         http.oauth2Login(withDefaults());
         http.authorizeHttpRequests(authz -> authz
-        		.requestMatchers("/", "/home","/get-token","/favicon.ico").permitAll()
+        		.requestMatchers("/", "/home","/get-token","/token-request-page","/get-token-ui", "/favicon.ico").permitAll()
                 .anyRequest().authenticated()
         );
         http.oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
