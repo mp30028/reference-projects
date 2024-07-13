@@ -1,4 +1,4 @@
-package com.zonesoft.reference.datetime.controllers;
+package com.zonesoft.reference.datetime.api.controllers;
 
 import java.time.Instant;
 import java.time.ZoneId;

@@ -1,4 +1,4 @@
-package com.zonesoft.reference.datetime.configs;
+package com.zonesoft.reference.datetime.api.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
