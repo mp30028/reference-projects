@@ -32,8 +32,8 @@ public class HomeController {
     @Value("${spring.security.oauth2.client.provider.keycloak.issuer-uri}")
     private String baseUrl;
 
-    @PostMapping("/get-token")
-    public ResponseEntity<?> getToken(@RequestBody Credentials credentials) {    	
+    @PostMapping("/get-token-api")
+    public ResponseEntity<?> getTokenApi(@RequestBody Credentials credentials) {    	
     	String tokenUrl = baseUrl + "/protocol/openid-connect/token";
     	LOGGER.debug("credentials = {}, tokenUrl = {}", credentials, tokenUrl);
         MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
