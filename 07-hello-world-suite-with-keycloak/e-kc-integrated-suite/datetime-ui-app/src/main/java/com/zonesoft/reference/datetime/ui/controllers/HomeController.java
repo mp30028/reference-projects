@@ -130,16 +130,23 @@ public class HomeController {
     
 	@GetMapping(value={"","/", "/home"})
 	@ResponseBody
-	public String home( ) {
+	public String home() {
 		LOGGER.debug("Request for home received");
 		StringBuilder htmlResponse = new StringBuilder();
 		htmlResponse.append("<h3>");
 			htmlResponse.append("Welcome to Date/Time App");
-			htmlResponse.append("<h4>");
-				htmlResponse.append("Select what you would like to do next ");
-			htmlResponse.append("</h4>");
-			htmlResponse.append("<a href=\"/show-greeting\">show-local-greeting</a><br/>");
 		htmlResponse.append("</h3>");
+		htmlResponse.append("<h4>");
+			htmlResponse.append("Select what you would like to do next ");
+		htmlResponse.append("</h4>");				
+		
+		htmlResponse.append("<p>");
+			htmlResponse.append("<a href=\"/show-greeting\">show-local-greeting</a>");
+		htmlResponse.append("</p>");
+		htmlResponse.append("<p>");
+			htmlResponse.append("<a href=\"/show-timestamp\">Get date and time from remote services</a>");
+		htmlResponse.append("</p>");			
+		
 		return htmlResponse.toString();
 	}    
 }
