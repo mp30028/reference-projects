@@ -1,9 +1,10 @@
 ##############################
 ## key files
 ##############################
-.key
+!localhost.key
+!keycloak.key
 *.key
-*.keyx
+
 
 ##############################
 ## Allow SSLPoke.class
@@ -29,6 +30,8 @@ _scratches/*
 *.*_DISABLE*
 *.*_DISABLED*
 *.*_DISABLE
+*_DISABLE*
+*_HIDDEN*
 
 ##############################
 ## deleted-files
