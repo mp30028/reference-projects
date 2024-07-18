@@ -146,7 +146,9 @@ public class HomeController {
 		htmlResponse.append("<p>");
 			htmlResponse.append("<a href=\"/show-timestamp\">Get date and time from remote services</a>");
 		htmlResponse.append("</p>");			
-		
+		htmlResponse.append("<p>");
+			htmlResponse.append("<a href=\"/show-info\">Get info from remote services</a>");
+		htmlResponse.append("</p>");	
 		return htmlResponse.toString();
 	}    
 }

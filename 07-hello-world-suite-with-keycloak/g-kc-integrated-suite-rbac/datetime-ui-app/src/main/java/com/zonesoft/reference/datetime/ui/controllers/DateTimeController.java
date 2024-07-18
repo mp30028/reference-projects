@@ -22,7 +22,22 @@ public class DateTimeController {
 
     public DateTimeController(WebClient webClient) {
         this.webClient = webClient;
-    }	    
+    }
+    
+    
+	@GetMapping(value={"/show-info"})
+	@ResponseBody
+	public String showInfo( @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient) {
+		LOGGER.debug("Request to show-info received");
+		StringBuilder htmlResponse = new StringBuilder();			
+			htmlResponse.append("<h3>");
+				htmlResponse.append("Showing Date-Time-Service info");
+				htmlResponse.append("<h4>");
+					htmlResponse.append(getInfo(authorizedClient));
+				htmlResponse.append("</h4>");
+				htmlResponse.append("<a href=\"/home\">Home</a><br/>");
+		return htmlResponse.toString();
+	}	    
 	
 	@GetMapping(value={"/show-timestamp"})
 	@ResponseBody
@@ -30,7 +45,7 @@ public class DateTimeController {
 		LOGGER.debug("Request to show-timestamp received");
 		StringBuilder htmlResponse = new StringBuilder();			
 			htmlResponse.append("<h3>");
-				htmlResponse.append("Showing Date-Time in UI");
+				htmlResponse.append("Showing Date-Time");
 				htmlResponse.append("<h4>");
 					htmlResponse.append(getTimestamp(authorizedClient));
 				htmlResponse.append("</h4>");
@@ -38,6 +53,11 @@ public class DateTimeController {
 		return htmlResponse.toString();
 	}		
 
+	private String getInfo( OAuth2AuthorizedClient authorizedClient) {
+		String infoText = this.invoke("/info",authorizedClient);
+		return infoText;
+	}	
+	
 	private String getTimestamp( OAuth2AuthorizedClient authorizedClient) {
 		String dateText = this.invoke("/get-date",authorizedClient);
 		String timeText = this.invoke("/get-time",authorizedClient);
@@ -53,5 +73,6 @@ public class DateTimeController {
 		          .bodyToMono(String.class)				
 				.block();
 		return result;
-	}	
+	}
+		
 }
