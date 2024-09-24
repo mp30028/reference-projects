@@ -11,9 +11,9 @@
   <name>07d-hello-world-servics</name>
   <description>Services used by other hello world modules</description>
 	<modules>
-		<module>08d-greeting-service</module>
-		<module>08d-clock-service</module>
-		<module>08d-calendar-service</module>
+		<module>07d-greeting-service</module>
+		<module>07d-clock-service</module>
+		<module>07d-calendar-service</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -30,6 +30,11 @@
 			<artifactId>07d-hello-world-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
 		</dependency>
+		<dependency>
+			<groupId>com.zonesoft</groupId>
+			<artifactId>07d-hello-world-utils-kc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>			
+		</dependency>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>

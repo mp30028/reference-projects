@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.zonesoft.reference.services.greeting.client_configs.CalendarClientConfigs;
 import com.zonesoft.reference.services.greeting.client_configs.ClockClientConfigs;
-import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
+import com.zonesoft.reference.utils.IClientBuilderConfigs;
 
 import reactor.core.publisher.Mono;
 

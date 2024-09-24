@@ -1,4 +1,4 @@
-package com.zonesoft.reference.utils.client_builder;
+package com.zonesoft.reference.utils;
 
 public interface IClientBuilderConfigs {
 

@@ -9,5 +9,9 @@
   <artifactId>07d-hello-world-libs</artifactId>
   <name>07d-hello-world-libs</name>
   <description>Parent of reusable utilties packaged as static libraries</description>
-  <packaging>pom</packaging>  
+  <packaging>pom</packaging>
+	<modules>
+		<module>07d-hello-world-utils</module>
+		<module>07d-hello-world-util-kc</module>
+	</modules>  
 </project>

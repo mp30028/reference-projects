@@ -7,8 +7,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath />
 	</parent>
-	<artifactId>08d-greeting-service</artifactId>
-	<name>08d-greeting-service</name>
+	<artifactId>07d-greeting-service</artifactId>
+	<name>07d-greeting-service</name>
 	<description>A very basic greeting web service</description>
 	<dependencies>
 		<dependency>

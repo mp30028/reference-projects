@@ -3,7 +3,7 @@ package com.zonesoft.reference.services.greeting.client_configs;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.zonesoft.reference.utils.client_builder.IClientBuilderConfigs;
+import com.zonesoft.reference.utils.IClientBuilderConfigs;
 
 @Configuration
 public class ClockClientConfigs implements IClientBuilderConfigs {
