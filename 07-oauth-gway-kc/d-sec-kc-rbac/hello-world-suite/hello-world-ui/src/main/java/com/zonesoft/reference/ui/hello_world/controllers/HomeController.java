@@ -18,12 +18,6 @@ public class HomeController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-//    private WebClient webClient;
-//
-//    public HomeController(WebClient webClient) {
-//        this.webClient = webClient;
-//    }	
-	
 	@GetMapping(value={"","/"})
 	@ResponseBody
 	public String greeting( ) {
