@@ -15,7 +15,7 @@ public class SpringCloudConfig {
 //        		.route("hello-world-ui", r -> r.path("/hello-world/ui/**").uri("https://localhost:8311"))
                 .route("hello-world-api-greeting", r -> r.path("/hello-world/api/greeting/**").uri("https://localhost:8312"))
                 .route("hello-world-api-calendar", r -> r.path("/hello-world/api/calendar/**").uri("https://localhost:8314"))
-                .route("hello-world-api-clock", r -> r.path("/hello-world/api/clock/**").uri("https://localhost:8313"))
+                .route("hello-world-api-clock", r -> r.path("/hello-world/api/clock/**").filters(f -> f.tokenRelay()).uri("https://localhost:8313"))
                 .route("default-route", r -> r.path("/hello-world/ui/**").uri("https://localhost:8311"))
                 .build();
     }
