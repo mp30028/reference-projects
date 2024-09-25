@@ -10,9 +10,9 @@
   <name>07a-hello-world-servics</name>
   <description>Services used by other hello world modules</description>
 	<modules>
-		<module>08a-greeting-service</module>
-		<module>08a-clock-service</module>
-		<module>08a-calendar-service</module>
+		<module>07a-greeting-service</module>
+		<module>07a-clock-service</module>
+		<module>07a-calendar-service</module>
 	</modules>
 	<dependencies>
 		<dependency>

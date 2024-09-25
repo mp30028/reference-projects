@@ -6,8 +6,8 @@
 		<artifactId>07a-hello-world-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>08a-clock-service</artifactId>
-	<name>08a-clock-service</name>
+	<artifactId>07a-clock-service</artifactId>
+	<name>07a-clock-service</name>
 	<description>A very basic web service to get the time</description>
 	<build>
 		<plugins>

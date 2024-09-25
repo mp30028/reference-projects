@@ -6,8 +6,8 @@
 		<artifactId>07a-hello-world-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>08a-calendar-service</artifactId>
-	<name>08a-calendar-service</name>
+	<artifactId>07a-calendar-service</artifactId>
+	<name>07a-calendar-service</name>
 	<description>A very basic web service to get the current date</description>
 	<build>
 		<plugins>
