@@ -6,8 +6,8 @@
 		<artifactId>08a-hello-world-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>08c-greeting-service</artifactId>
-	<name>08c-greeting-service</name>
+	<artifactId>08a-greeting-service</artifactId>
+	<name>08a-greeting-service</name>
 	<description>A very basic greeting web service</description>
 	<build>
 		<plugins>

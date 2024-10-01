@@ -2,26 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.zonesoft</groupId>
-    <artifactId>08a-hello-world-suite</artifactId>
+    <artifactId>08b-hello-world-suite</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>08a-hello-world-services</artifactId>
-  <packaging>pom</packaging>
-  <name>08a-hello-world-servics</name>
-  <description>Services used by other hello world modules</description>
-	<modules>
-		<module>08a-greeting-service</module>
-		<module>08a-clock-service</module>
-		<module>08a-calendar-service</module>
-	</modules>
+  <artifactId>08b-hello-world-ui</artifactId>
+  <name>08b-hello-world-ui</name>
+  <description>A ui to consume the services</description> 
 	<dependencies>
 		<dependency>
 			<groupId>com.zonesoft</groupId>
-			<artifactId>08a-hello-world-utils</artifactId>
+			<artifactId>08b-hello-world-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
 		</dependency>
-
-	</dependencies>	
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

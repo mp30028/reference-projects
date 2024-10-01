@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.zonesoft</groupId>
-		<artifactId>08a-hello-world-services</artifactId>
+		<artifactId>08b-hello-world-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>08a-clock-service</artifactId>
-	<name>08a-clock-service</name>
-	<description>A very basic web service to get the time</description>
+	<artifactId>08b-greeting-service</artifactId>
+	<name>08b-greeting-service</name>
+	<description>A very basic greeting web service</description>
 	<build>
 		<plugins>
 			<plugin>
