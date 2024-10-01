@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zonesoft</groupId>
+    <artifactId>08c-hello-world-suite</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>08c-hello-world-services</artifactId>
+  <packaging>pom</packaging>
+  <name>08c-hello-world-servics</name>
+  <description>Services used by other hello world modules</description>
+	<modules>
+		<module>08c-greeting-service</module>
+		<module>08c-clock-service</module>
+		<module>08c-calendar-service</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>com.zonesoft</groupId>
+			<artifactId>08c-hello-world-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>			
+		</dependency>
+
+	</dependencies>	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>		
+		</plugins>
+	</build> 	
+</project>
