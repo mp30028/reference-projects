@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.zonesoft</groupId>
+    <artifactId>09b-persons-platform</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath/>
+  </parent>
+  <artifactId>09b-persons-libs</artifactId>
+  <name>09b-persons-libs</name>
+  <description>Parent of reusable utilties packaged as static libraries</description>
+  <packaging>pom</packaging>
+	<modules>
+		<module>09b-persons-general-utils</module>
+		<module>09b-persons-kc-utils</module>
+	</modules>  
+</project>
