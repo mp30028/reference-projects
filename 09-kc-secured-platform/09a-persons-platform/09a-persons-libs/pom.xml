@@ -4,7 +4,6 @@
     <groupId>com.zonesoft</groupId>
     <artifactId>09a-persons-platform</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath/>
   </parent>
   <artifactId>09a-persons-libs</artifactId>
   <name>09a-persons-libs</name>
