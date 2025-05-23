@@ -31,9 +31,12 @@ public class SpringCloudConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-        		.route("api-person", r -> r.path(apiPersonPath).filters(f -> f.tokenRelay()).uri(apiPersonUri))
-        		.route("api-configs", r -> r.path(apiConfigsPath).filters(f -> f.tokenRelay()).uri(apiConfigsUri))
-        		.route("default", r -> r.path(defaultPath).filters(f -> f.tokenRelay()).uri(defaultUri))
+        		.route("api-person", r -> r.path(apiPersonPath).uri(apiPersonUri))
+        		.route("api-configs", r -> r.path(apiConfigsPath).uri(apiConfigsUri))
+        		.route("default", r -> r.path(defaultPath).uri(defaultUri))
+//        		.route("api-person", r -> r.path(apiPersonPath).filters(f -> f.tokenRelay()).uri(apiPersonUri))
+//        		.route("api-configs", r -> r.path(apiConfigsPath).filters(f -> f.tokenRelay()).uri(apiConfigsUri))
+//        		.route("default", r -> r.path(defaultPath).filters(f -> f.tokenRelay()).uri(defaultUri))
                 .build();
     } 
 }

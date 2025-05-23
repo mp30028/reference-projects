@@ -48,11 +48,11 @@
 			<artifactId>09b-persons-general-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>			
 		</dependency>		
-		<dependency>
-			<groupId>com.zonesoft</groupId>
-			<artifactId>09b-persons-kc-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>			
-		</dependency>		
+<!--		<dependency>-->
+<!--			<groupId>com.zonesoft</groupId>-->
+<!--			<artifactId>09b-persons-kc-utils</artifactId>-->
+<!--			<version>0.0.1-SNAPSHOT</version>			-->
+<!--		</dependency>		-->
 	</dependencies>	
 	
 	<build>

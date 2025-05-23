@@ -11,6 +11,6 @@
   <packaging>pom</packaging>
 	<modules>
 		<module>09b-persons-general-utils</module>
-		<module>09b-persons-kc-utils</module>
+<!--		<module>09b-persons-kc-utils</module>-->
 	</modules>  
 </project>
