@@ -16,7 +16,7 @@
   <description>Parent module of the suite of modules that make up the persons platform</description>	
 	<modules>
 		<module>09b-persons-gateway</module>
-<!--		<module>09b-persons-ui</module>-->
+		<module>09b-persons-ui</module>
 		<module>09b-persons-libs</module>
 		<module>09b-persons-services</module>		
 	</modules>

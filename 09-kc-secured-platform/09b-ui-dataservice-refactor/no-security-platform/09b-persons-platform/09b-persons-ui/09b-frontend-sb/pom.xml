@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+  <parent>
+    <groupId>com.zonesoft</groupId>
+    <artifactId>09b-persons-ui</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+	<artifactId>09b-frontend-sb</artifactId>
+	<name>09b-frontend-sb</name>
+	<packaging>jar</packaging>
+	
+	<description>Launcher and services for reactjs web frontend </description>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>		     
+	</dependencies>
+
+	<build>
+		<plugins>			
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.zonesoft.persons.ui.PersonsUIApp</mainClass>                               
+					<layout>JAR</layout>
+				</configuration>
+				<executions>
+				    <execution>
+				        <goals>
+				            <goal>repackage</goal>
+				        </goals>
+				    </execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
